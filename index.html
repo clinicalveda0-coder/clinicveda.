@@ -250,6 +250,52 @@
       border-left: 4px solid #087f5b;
     }
 
+    /* Instagram-style Multi-Link Hub Box */
+    .linktree-box {
+      background: white;
+      max-width: 600px;
+      margin: 25px auto;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      border: 1px solid #e0f2ec;
+    }
+    .linktree-box h3 {
+      font-size: 1.4rem;
+      color: #087f5b;
+      margin-bottom: 5px;
+    }
+    .linktree-box p {
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0faf5;
+      border: 1px solid #d1fae5;
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      text-decoration: none;
+      color: #174b3b;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .link-item:hover {
+      background: #087f5b;
+      color: white;
+      transform: translateY(-2px);
+    }
+    .link-item span {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      font-weight: normal;
+    }
+
     /* About & Contact */
     .box {
       background: white;
@@ -263,7 +309,7 @@
     .contact-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       margin-top: 15px;
       flex-wrap: wrap;
     }
@@ -271,14 +317,16 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 20px;
+      padding: 10px 18px;
       border-radius: 8px;
       text-decoration: none;
       color: white;
       font-weight: 600;
+      font-size: 0.9rem;
     }
     .ig-btn { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
     .yt-btn { background: #ff0000; }
+    .wa-btn { background: #25d366; }
 
     /* Floating WhatsApp Button */
     .whatsapp-btn {
@@ -292,6 +340,7 @@
       text-decoration: none;
       font-weight: bold;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 999;
     }
 
     footer {
@@ -313,14 +362,14 @@
     <li><a href="#home">Home</a></li>
     <li><a href="#services">Focus Areas</a></li>
     <li><a href="#ceo">Leadership</a></li>
-    <li><a href="#instagram">Instagram Feed</a></li>
+    <li><a href="#links">Official Links</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <header id="home">
   <h1>🌿 Clinical Veda</h1>
-  <p>Ayurveda × Modern Science</p>
+  <p>Ayurveda × Modern Science | @clinicalveda_</p>
 </header>
 
 <section class="hero">
@@ -339,7 +388,7 @@
   <div class="cards">
     <div class="card">
       <h3>🌿 Ayurveda Knowledge</h3>
-      <p>Classical texts + modern clinical insights on herbs like Ashwagandha, Triphala etc.</p>
+      <p>Classical texts + modern clinical insights on herbs and formulations.</p>
     </div>
     <div class="card">
       <h3>🩺 Clinical Insights</h3>
@@ -375,7 +424,7 @@
     <div class="insta-post">
       <h4>🌿 Ashwagandha Benefits</h4>
       <p>Clinical trials aur classical texts ke anusaar cortisol aur stress management.</p>
-      <a href="https://instagram.com/dr_piyush_sahu" target="_blank" class="insta-link">View on IG</a>
+      <a href="https://instagram.com/clinicalveda_" target="_blank" class="insta-link">View on IG</a>
     </div>
     <div class="insta-post">
       <h4>🍃 Triphala Churna Guide</h4>
@@ -383,8 +432,8 @@
       <a href="https://instagram.com/clinicalveda_" target="_blank" class="insta-link">View on IG</a>
     </div>
     <div class="insta-post">
-      <h4>🧠 Brahmi & Brain Health</h4>
-      <p>Memory aur cognitive enhancement par modern science ke facts.</p>
+      <h4>🌱 Shatavari Benefits</h4>
+      <p>Women's health aur overall vitality ke liye classical aur modern science.</p>
       <a href="https://instagram.com/clinicalveda_" target="_blank" class="insta-link">View on IG</a>
     </div>
   </div>
@@ -392,11 +441,11 @@
 
 <!-- Herb Explorer -->
 <div class="explorer" id="explorer">
-  <h2 style="text-align: center; margin-bottom: 15px;">Ayurveda & Science Herb Explorer</h2>
+  <h2 style="text-align: center; margin-bottom: 15px;">Featured Products & Herb Explorer</h2>
   <div class="tab-btns">
     <button class="active" onclick="showHerb('ashwa', this)">Ashwagandha</button>
+    <button onclick="showHerb('shatavari', this)">Shatavari</button>
     <button onclick="showHerb('triphala', this)">Triphala</button>
-    <button onclick="showHerb('brahmi', this)">Brahmi</button>
   </div>
 
   <div id="ashwa" class="herb-detail">
@@ -405,18 +454,41 @@
     <p style="margin-top: 4px;"><strong>Modern Science:</strong> Adaptogen jo body me cortisol (stress hormone) ko kam karta hai.</p>
   </div>
 
+  <div id="shatavari" class="herb-detail" style="display: none;">
+    <h3>🌱 Shatavari (Asparagus racemosus)</h3>
+    <p style="margin-top: 6px;"><strong>Ayurvedic View:</strong> Rasayana aur Stanya janan, jo overall wellness aur vitality promote karta hai.</p>
+    <p style="margin-top: 4px;"><strong>Modern Science:</strong> Powerful antioxidants aur adaptogenic properties jo hormonal balance mein madad karti hain.</p>
+  </div>
+
   <div id="triphala" class="herb-detail" style="display: none;">
     <h3>🍃 Triphala</h3>
     <p style="margin-top: 6px;"><strong>Ayurvedic View:</strong> Tridosha hara formulation jo digestion aur bowel habit ko regulate karta hai.</p>
-    <p style="margin-top: 4px;"><strong>Modern Science:</strong> High antioxidants aur prebiotic capabilities gut microbiome ko health rakhti hain.</p>
-  </div>
-
-  <div id="brahmi" class="herb-detail" style="display: none;">
-    <h3>🌱 Brahmi (Bacopa monnieri)</h3>
-    <p style="margin-top: 6px;"><strong>Ayurvedic View:</strong> Medhya Rasayana jo memory aur mental clarity badhata hai.</p>
-    <p style="margin-top: 4px;"><strong>Modern Science:</strong> Bacosides brain cell connectivity aur focus ko enhance karte hain.</p>
+    <p style="margin-top: 4px;"><strong>Modern Science:</strong> High antioxidants aur prebiotic capabilities gut microbiome ko healthy rakhti hain.</p>
   </div>
 </div>
+
+<!-- Official Multi-Links Hub (Screenshot Links Added) -->
+<section class="section" id="links">
+  <div class="linktree-box">
+    <h3>🔗 Official Links & Resources</h3>
+    <p>Clinical Veda ke sabhi important platforms ek hi jagah par:</p>
+    
+    <a href="https://youtu.be/LZUVjs-HNJI?si=_4l7W78A6Dv4-g-2" target="_blank" class="link-item">
+      <span>▶️ Bharat Ayurveda Video</span>
+      <strong>Watch Now →</strong>
+    </a>
+    
+    <a href="https://smartbiz.in/lokeshnaturalandayurved" target="_blank" class="link-item">
+      <span>🛍️ Namaste Store</span>
+      <strong>Visit Store →</strong>
+    </a>
+    
+    <a href="https://chat.whatsapp.com/CIXnOxCOlKN6LwHKbb" target="_blank" class="link-item">
+      <span>💬 WhatsApp Order</span>
+      <strong>Join / Order →</strong>
+    </a>
+  </div>
+</section>
 
 <div class="box" id="about">
   <h2>About Clinical Veda</h2>
@@ -424,19 +496,20 @@
 </div>
 
 <div class="box" id="contact">
-  <h2>Connect With Us</h2>
-  <p>Hamein social media par follow karein aur latest health education updates paayein:</p>
+  <h2>Connect & Consult With Us</h2>
+  <p>Health inquiries ya consultation ke liye humein social media ya WhatsApp par contact karein:</p>
   <div class="contact-links">
-    <a href="https://instagram.com/dr_piyush_sahu" target="_blank" class="social-btn ig-btn">📷 Instagram (@dr_piyush_sahu)</a>
-    <a href="https://www.youtube.com/@clinicalveda_healthcare" target="_blank" class="social-btn yt-btn">▶️ YouTube (@clinicalveda_healthcare)</a>
+    <a href="https://instagram.com/clinicalveda_" target="_blank" class="social-btn ig-btn">📷 Instagram</a>
+    <a href="https://www.youtube.com/@clinicalveda_healthcare" target="_blank" class="social-btn yt-btn">▶️ YouTube</a>
+    <a href="https://wa.me/917354482365?text=Hello%20Clinical%20Veda,%20I%20want%20health%20inquiry/consultation" target="_blank" class="social-btn wa-btn">💬 WhatsApp Consult</a>
   </div>
 </div>
 
-<!-- Floating WhatsApp Link -->
-<a href="https://whatsapp.com" target="_blank" class="whatsapp-btn">💬 Chat on WhatsApp</a>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/917354482365?text=Hello%20Clinical%20Veda,%20I%20want%20health%20inquiry/consultation" target="_blank" class="whatsapp-btn">💬 Chat on WhatsApp</a>
 
 <footer>
-  <p>© 2026 Clinical Veda</p>
+  <p>© 2026 Clinical Veda | @clinicalveda_</p>
   <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 4px;">
     Educational content only. Not a substitute for professional medical advice.
   </p>
@@ -458,8 +531,8 @@
 
   function showHerb(id, btn) {
     document.getElementById('ashwa').style.display = 'none';
+    document.getElementById('shatavari').style.display = 'none';
     document.getElementById('triphala').style.display = 'none';
-    document.getElementById('brahmi').style.display = 'none';
     
     document.getElementById(id).style.display = 'block';
 
